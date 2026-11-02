@@ -1,7 +1,7 @@
 {
   "name": "slq-studio",
   "productName": "SLQ Studio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Open-source controller for SLQ 48x12 LED panels (unofficial)",
   "author": "civaninatolyesi <civaninatolyesi@users.noreply.github.com>",
   "license": "MIT",

@@ -2,6 +2,14 @@
 
 Biçim [Keep a Changelog](https://keepachangelog.com/tr-TR/1.1.0/), sürümleme [SemVer](https://semver.org/lang/tr/).
 
+## [1.0.1] — 2026-11-02
+
+İlk paketli sürüm. Uygulama kodu 1.0.0 ile aynıdır.
+
+### Düzeltildi
+- Sürüm paketleme iş akışı: etiket ile `package.json` aynı sürümdeyken masaüstü derlemesi duruyordu;
+  Android derlemesi SDK lisans onayında takılıyordu. 1.0.0 etiketi bu yüzden paketsiz kaldı.
+
 ## [1.0.0] — 2026-11-02
 
 İlk herkese açık sürüm: son kullanıcılar için SLQ Studio uygulaması. Bundan sonra depo ve uygulama aynı sürüm numarasını kullanır.
@@ -54,4 +62,5 @@ Kara kutu aşaması: uygulama kodu olmadan BLE taramalarıyla protokol arandı.
 - `BC CMD LEN … CRC 55` çerçevesi ve "S0/S1 durum makinesi" yorumları. Gözlenen `XX YY 01 00`
   cevaplarının hepsi aslında geçersiz komutlara verilen ret cevabıydı (ST=0).
 
+[1.0.1]: https://github.com/civaninatolyesi/slq-led-panel/releases/tag/v1.0.1
 [1.0.0]: https://github.com/civaninatolyesi/slq-led-panel/releases/tag/v1.0.0
