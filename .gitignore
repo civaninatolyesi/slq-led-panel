@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Çalışma zamanı logları (doğrulama kanıtları docs/verification/ altında tutulur)
+logs/
+
+# Üretici ikilileri: telif hakkı üreticiye ait, depoya konmaz
+vendor/*.apk
