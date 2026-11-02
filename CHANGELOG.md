@@ -2,9 +2,17 @@
 
 Biçim [Keep a Changelog](https://keepachangelog.com/tr-TR/1.1.0/), sürümleme [SemVer](https://semver.org/lang/tr/).
 
+## [1.0.2] — 2026-11-02
+
+İlk paketli sürüm: Windows, Linux, macOS ve Android. Uygulama kodu 1.0.0 ile aynıdır.
+
+### Düzeltildi
+- Android `build.gradle`: sürüm kodu ifadesi Gradle'da "Value is null" hatası veriyordu.
+- Pages yayını yalnızca `main`'e push'ta yapılır ve sıraya alınır (eşzamanlı yayın reddediliyordu).
+
 ## [1.0.1] — 2026-11-02
 
-İlk paketli sürüm. Uygulama kodu 1.0.0 ile aynıdır.
+Paketlenemedi (Android derlemesi düştü); yerine 1.0.2 yayınlandı.
 
 ### Düzeltildi
 - Sürüm paketleme iş akışı: etiket ile `package.json` aynı sürümdeyken masaüstü derlemesi duruyordu;
@@ -62,5 +70,6 @@ Kara kutu aşaması: uygulama kodu olmadan BLE taramalarıyla protokol arandı.
 - `BC CMD LEN … CRC 55` çerçevesi ve "S0/S1 durum makinesi" yorumları. Gözlenen `XX YY 01 00`
   cevaplarının hepsi aslında geçersiz komutlara verilen ret cevabıydı (ST=0).
 
+[1.0.2]: https://github.com/civaninatolyesi/slq-led-panel/releases/tag/v1.0.2
 [1.0.1]: https://github.com/civaninatolyesi/slq-led-panel/releases/tag/v1.0.1
 [1.0.0]: https://github.com/civaninatolyesi/slq-led-panel/releases/tag/v1.0.0
