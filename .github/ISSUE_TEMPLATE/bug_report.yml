@@ -1,0 +1,38 @@
+name: Hata bildirimi / Bug report
+description: Uygulamada ya da kütüphanede bir şey beklendiği gibi çalışmıyor
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Teşekkürler! Panel görünmüyorsa önce [sorun giderme](https://github.com/civaninatolyesi/slq-led-panel/blob/main/docs/app.md#sorun-giderme) bölümüne bak.
+        *English is fine too.*
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: [Windows, Linux, macOS, Android uygulaması, Tarayıcı (web sürümü), Python kütüphanesi]
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: SLQ Studio sürümü
+      description: Ayarlar → Hakkında
+      placeholder: 1.0.0
+  - type: input
+    id: panel
+    attributes:
+      label: Panel adı ve firmware
+      description: Ayarlar → Panel (ör. SLQ-B555F7, 1.0.6)
+  - type: textarea
+    id: what
+    attributes:
+      label: Ne oldu, ne bekliyordun?
+      description: Adım adım nasıl tekrarlanır?
+    validations: { required: true }
+  - type: textarea
+    id: log
+    attributes:
+      label: BLE trafiği (varsa)
+      description: Ayarlar → Geliştirici → Göster. İlgili satırları yapıştır.
+      render: text

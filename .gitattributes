@@ -1,0 +1,22 @@
+# Depoda tüm metin dosyaları LF. Windows'ta çalışırken de CI (Linux/macOS) ile aynı içerik oluşur.
+* text=auto eol=lf
+
+# Windows betikleri CRLF kalmalı
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# İkili dosyalar
+*.png binary
+*.ico binary
+*.jpg binary
+*.gif binary
+*.woff2 binary
+*.jar binary
+*.apk binary
+
+# Dil istatistiklerinden üretilmiş dosyaları çıkar
+app/package-lock.json linguist-generated
+app/src/core/vectors.json linguist-generated
+app/src/core/font12.json linguist-generated
+slq/data/font12.json linguist-generated

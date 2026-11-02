@@ -2,6 +2,25 @@
 
 Biçim [Keep a Changelog](https://keepachangelog.com/tr-TR/1.1.0/), sürümleme [SemVer](https://semver.org/lang/tr/).
 
+## [1.0.0] — 2026-11-02
+
+İlk herkese açık sürüm: son kullanıcılar için SLQ Studio uygulaması. Bundan sonra depo ve uygulama aynı sürüm numarasını kullanır.
+
+### Eklendi
+- `app/`: SLQ Studio — Windows, Linux, macOS (Electron), Android (Capacitor) ve tarayıcıda (PWA) çalışan
+  tek kod tabanlı kontrol uygulaması. Panelin bütün özellikleri: yazı (8 efekt, renk, gradyan, gökkuşağı,
+  dikey), 17 hazır animasyon, resim/GIF yükleme, kare kare piksel animasyon stüdyosu, canlı çizim, müzik
+  ritmi (mikrofon, dosya, Windows'ta sistem sesi), bisiklet (sinyal, elle/GPS hız), saat, zamanlayıcı,
+  playlist, parlaklık/güç/döndürme, sıfırlama, geliştirici konsolu. Türkçe ve İngilizce, koyu ve açık tema.
+- Protokolün TypeScript portu (`app/src/core/`) ve Python'la bayt bayt karşılaştıran testler
+  (`tools/gen_test_vectors.py`, 32 test).
+- Türkçe harfler için dar (6×12, TİP 3) glifler: Ç Ş Ğ Ü Ö İ ç ş ğ ü ö ı.
+- Donanım duman testi `app/scripts/hwtest.cjs`: SLQ-B555F7 üzerinde 20/20 adım başarılı.
+- GitHub Actions: test, masaüstü/Android paketleri, GitHub Release ve Pages yayını.
+- [Uygulama rehberi](docs/app.md), [uygulama doğrulama raporu](docs/verification/2026-11-02-app-report.md).
+- Yayına hazırlık: MIT lisansı, CONTRIBUTING, SECURITY, issue/PR şablonları, `.gitattributes`.
+- Türkçe dar gliflerin biçimi spesifikasyona eklendi ([5.1](docs/protocol/05-data-formats.md)).
+
 ## [0.2.0] — 2026-11-02
 
 Protokol üretici uygulamasından çıkarıldı ve donanımda doğrulandı.
@@ -34,3 +53,5 @@ Kara kutu aşaması: uygulama kodu olmadan BLE taramalarıyla protokol arandı.
 ### Yanlış çıkanlar
 - `BC CMD LEN … CRC 55` çerçevesi ve "S0/S1 durum makinesi" yorumları. Gözlenen `XX YY 01 00`
   cevaplarının hepsi aslında geçersiz komutlara verilen ret cevabıydı (ST=0).
+
+[1.0.0]: https://github.com/civaninatolyesi/slq-led-panel/releases/tag/v1.0.0

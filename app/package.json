@@ -1,0 +1,125 @@
+{
+  "name": "slq-studio",
+  "productName": "SLQ Studio",
+  "version": "1.0.0",
+  "description": "Open-source controller for SLQ 48x12 LED panels (unofficial)",
+  "author": "civaninatolyesi <civaninatolyesi@users.noreply.github.com>",
+  "license": "MIT",
+  "homepage": "https://civaninatolyesi.github.io/slq-led-panel/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/civaninatolyesi/slq-led-panel.git",
+    "directory": "app"
+  },
+  "bugs": {
+    "url": "https://github.com/civaninatolyesi/slq-led-panel/issues"
+  },
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "electron": "electron .",
+    "electron:dev": "concurrently -k \"vite --port 5173 --strictPort\" \"wait-on tcp:5173 && cross-env SLQ_DEV_URL=http://localhost:5173 electron .\"",
+    "dist:win": "vite build && electron-builder --win --publish never",
+    "dist:linux": "vite build && electron-builder --linux --publish never",
+    "dist:mac": "vite build && electron-builder --mac --publish never",
+    "android:sync": "vite build && cap sync android",
+    "android:open": "cap open android",
+    "screenshots": "vite build && electron scripts/screenshots.cjs screenshots",
+    "hwtest": "vite build && electron scripts/hwtest.cjs"
+  },
+  "dependencies": {
+    "@capacitor-community/bluetooth-le": "^8.3.0",
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "gifenc": "^1.0.3",
+    "lucide-react": "^1.66.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zustand": "^5.0.16"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.0",
+    "@types/dom-webcodecs": "^0.1.19",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/web-bluetooth": "^0.0.22",
+    "@vitejs/plugin-react": "^6.2.1",
+    "concurrently": "^10.0.6",
+    "cross-env": "^10.1.0",
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0",
+    "typescript": "5.9",
+    "vite": "^8.3.5",
+    "vitest": "^5.1.0",
+    "wait-on": "^9.5.1"
+  },
+  "build": {
+    "appId": "io.github.civaninatolyesi.slqstudio",
+    "productName": "SLQ Studio",
+    "copyright": "Copyright © 2026 civaninatolyesi — MIT License",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "build/icon.png",
+      "!**/node_modules/**/*"
+    ],
+    "asar": true,
+    "npmRebuild": false,
+    "artifactName": "SLQ-Studio-${version}-${os}-${arch}.${ext}",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "portable": {
+      "artifactName": "SLQ-Studio-${version}-portable.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "shortcutName": "SLQ Studio"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "icon": "build/icon.png",
+      "synopsis": "SLQ LED panel controller",
+      "maintainer": "civaninatolyesi <civaninatolyesi@users.noreply.github.com>"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.utilities"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Güvenlik açığı bildir
+    url: https://github.com/civaninatolyesi/slq-led-panel/security/advisories/new
+    about: Paneli bozma riski taşıyan konuları özel olarak bildir (SECURITY.md)

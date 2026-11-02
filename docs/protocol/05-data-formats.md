@@ -45,6 +45,23 @@ std:  bayt 2k, 2k+1 -> sütun k [üst, alt], bit7 = en üst satır
 Referans istemcinin varsayılanı `mode="mixed"`: tablodaki karakterler TİP 3 (dar), diğerleri TİP 4.
 Doğrulandı ("HELLO 12": boşluk TİP 4, diğerleri TİP 3).
 
+### Tabloda olmayan karakterler için dar glif
+
+TİP 3 kaydı glifin baytlarını kendisi taşır; firmware yerleşik bir font kullanmaz. Bu yüzden tabloda olmayan
+karakterler için de 6×12 glif üretilebilir. SLQ Studio Türkçe harfleri temel harfe aksan ekleyerek üretir
+(`app/src/core/text.ts`):
+
+| Harf | Temel | Eklenen |
+|---|---|---|
+| Ç Ş / ç ş | C S / c s | 9–10. satırlarda çengel |
+| Ğ / ğ | G / g | 0–1. / 2–3. satırlarda kesme işareti |
+| Ü Ö / ü ö | U O / u o | 0. / 3. satırda iki nokta |
+| İ / ı | I / i | 0. satıra nokta / 2. satırdaki nokta kaldırılır |
+| boşluk | — | 12 sıfır bayt |
+
+Panel bu kayıtları kabul eder (ST=1, [uygulama doğrulama raporu](../verification/2026-11-02-app-report.md));
+panelde doğru göründükleri **Açık**. Python istemcisi bu karakterleri hâlâ TİP 4 bitmap olarak gönderir.
+
 ### Görüntüleme davranışı
 
 - Ekrana sığmayan metin, `FIXED` efektte sayfalara bölünür ("HELL" → "O") (Doğrulandı).

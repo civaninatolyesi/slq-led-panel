@@ -1,5 +1,8 @@
 # Geliştirici rehberi
 
+Bu rehber Python referans istemcisini (`slq/`) ve donanım araçlarını anlatır.
+SLQ Studio uygulamasının (`app/`) geliştirilmesi için: [uygulama rehberi](app.md#2-geliştiriciler-için).
+
 ## Kurulum
 
 ```bash
@@ -90,7 +93,9 @@ geri alma fonksiyonudur (ör. zamanlayıcıyı temizlemek).
 2. `slq/protocol.py`'ye kurucu fonksiyon ekle. Doğrulanmamış alanları docstring'de belirt.
 3. `tools/slq_test.py`'ye test ekle ve panelde çalıştır.
 4. `docs/protocol/03-commands.md`'ye satır ve bölüm ekle; durumu (Doğrulandı / APK / Açık) yaz.
-5. `CHANGELOG.md`'yi güncelle.
+5. Aynı kurucuyu `app/src/core/protocol.ts`'ye ekle. `tools/gen_test_vectors.py`'ye bir vektör ekle,
+   `python tools/gen_test_vectors.py` ile `app/src/core/vectors.json`'ı yenile ve `cd app && npm test` çalıştır.
+6. `CHANGELOG.md`'yi güncelle.
 
 ## Güvenlik kuralları
 
@@ -101,9 +106,12 @@ geri alma fonksiyonudur (ör. zamanlayıcıyı temizlemek).
 | Zamanlayıcıyı kapatırken EN = `00` | `01` "etkin, gün yok" demektir |
 | Deneyleri geliştirme panelinde yap (`SLQ-B555F7`) | ikinci panel (`SLQ-BA3FE9`) açık onay olmadan kullanılmaz |
 
-## Android'e taşıma notları
+## Android notları
 
-- Android'de `BluetoothGatt.writeCharacteristic` sırayla çağrılmalıdır. Her yazmanın `onCharacteristicWrite` geri çağrısı beklenmeden yenisi yazılmamalı.
+Android desteği SLQ Studio'da (`app/src/ble/native.ts`, Capacitor + `@capacitor-community/bluetooth-le`) uygulandı.
+Başka bir Android istemcisi yazacaklar için kurallar:
+
+- `BluetoothGatt.writeCharacteristic` sırayla çağrılmalıdır. Her yazmanın `onCharacteristicWrite` geri çağrısı beklenmeden yenisi yazılmamalı (SLQ Studio'da `Panel.exclusive()`).
 - C823 için CCCD (`0x2902`) değerine `ENABLE_NOTIFICATION_VALUE` yazılmalı.
-- `requestMtu(472)`: parça boyutu 446 bayt varsayılır. Anlaşılan MTU 472'den küçükse parça boyutu `MTU − 26` olmalı (uygulama ≤ 20 için 7 kullanır).
-- Metin için `mode="mixed"` mantığı ve `font12.json` tablosu doğrudan taşınabilir. TİP 4 glifleri Android `Canvas` ile 12×12 çizilir.
+- MTU istenmeli (üretici uygulaması 472, eklenti 512). Parça boyutu `min(446, MTU − 26)`; MTU ≤ 23 ise 7 bayt.
+- Metin için `mode="mixed"` mantığı ve `font12.json` tablosu doğrudan taşınabilir. TİP 4 glifleri `Canvas` ile 12×12 çizilir.

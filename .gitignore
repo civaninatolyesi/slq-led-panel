@@ -1,10 +1,55 @@
-# Python
+# ---------------------------------------------------------------- Python
 __pycache__/
-*.pyc
+*.py[cod]
 .venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # Çalışma zamanı logları (doğrulama kanıtları docs/verification/ altında tutulur)
 logs/
 
-# Üretici ikilileri: telif hakkı üreticiye ait, depoya konmaz
-vendor/*.apk
+# ---------------------------------------------------------------- üretici ikilileri
+# Telif hakkı üreticiye ait, depoya konmaz (docs/reverse-engineering.md)
+vendor/*
+!vendor/README.md
+
+# ---------------------------------------------------------------- SLQ Studio (app/)
+app/node_modules/
+app/dist/
+app/release/
+app/screenshots/
+app/coverage/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+
+# Android derleme çıktıları (geri kalan yoksaymalar: app/android/.gitignore)
+app/android/app/build/
+app/android/app/release/
+app/android/.gradle/
+app/android/build/
+app/android/local.properties
+app/android/.idea/
+*.apk
+*.aab
+
+# İmza anahtarları ve gizli değişkenler: ASLA depoya girmez
+*.keystore
+*.jks
+*.p12
+*.pfx
+keystore.properties
+.env
+.env.*
+!.env.example
+
+# ---------------------------------------------------------------- işletim sistemi ve editörler
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.swp
+*~

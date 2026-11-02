@@ -1,0 +1,34 @@
+name: Panel uyumluluğu / Panel compatibility
+description: Farklı bir panel modeli ya da firmware ile deneme sonucu
+labels: [panel-report]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proje şimdiye kadar yalnızca firmware 1.0.6'lı 48×12 panelde doğrulandı. Raporun spesifikasyonu genişletir.
+  - type: input
+    id: model
+    attributes:
+      label: Panel adı, boyutu ve firmware
+      description: Ad ve firmware uygulamada Ayarlar → Panel'de görünür
+      placeholder: SLQ-XXXXXX, 48×12, 1.0.6
+    validations: { required: true }
+  - type: checkboxes
+    id: works
+    attributes:
+      label: Çalışan özellikler
+      options:
+        - label: Bağlantı ve parlaklık
+        - label: Yazı (efektler, renkler)
+        - label: Türkçe harfler doğru görünüyor
+        - label: Görseller / GIF
+        - label: Canlı çizim
+        - label: Müzik ritmi
+        - label: Bisiklet
+        - label: Saat ve zamanlayıcı
+        - label: Playlist
+  - type: textarea
+    id: notes
+    attributes:
+      label: Gözlemler
+      description: Çalışmayanlar, farklı görünenler, fotoğraf ya da video bağlantısı

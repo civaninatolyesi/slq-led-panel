@@ -12,9 +12,12 @@ Protokolü ilk kez okuyorsan sırayla ilerle. Bir komuta bakıyorsan doğrudan
 | 3 | [Komut referansı](protocol/03-commands.md) | Tüm komutlar, bayt düzenleri, örnekler |
 | 4 | [Veri transferi](protocol/04-transfers.md) | Metin, GIF ve playlist yükleme akışları |
 | 5 | [Veri biçimleri](protocol/05-data-formats.md) | Glif kodlama, font, GIF kuralları, efekt ve renk tabloları |
+| — | [SLQ Studio uygulama rehberi](app.md) | Uygulamanın kullanımı, mimarisi, derleme ve yayınlama |
 | — | [Geliştirici rehberi](development.md) | Kurulum, kütüphane API'si, araçlar, yeni komut ekleme |
 | — | [Tersine mühendislik notları](reverse-engineering.md) | Bilgi nereden geldi, uygulama ile firmware farkları |
 | — | [Doğrulama raporu 2026-11-02](verification/2026-11-02-report.md) | Her özelliğin donanım testi sonucu |
+| — | [SLQ Studio doğrulama raporu 2026-11-02](verification/2026-11-02-app-report.md) | Uygulamanın Python'la bayt uyumu ve donanım duman testi |
+| — | [Katkı rehberi](../CONTRIBUTING.md) · [Güvenlik](../SECURITY.md) | Katkı süreci, panel güvenliği kuralları |
 
 ## Etiketler
 
