@@ -59,8 +59,7 @@ karakterler için de 6×12 glif üretilebilir. SLQ Studio Türkçe harfleri teme
 | İ / ı | I / i | 0. satıra nokta / 2. satırdaki nokta kaldırılır |
 | boşluk | — | 12 sıfır bayt |
 
-Panel bu kayıtları kabul eder (ST=1, [uygulama doğrulama raporu](../verification/2026-11-02-app-report.md));
-panelde doğru göründükleri **Açık**. Python istemcisi bu karakterleri hâlâ TİP 4 bitmap olarak gönderir.
+Panel bu kayıtları kabul eder ve doğru gösterir (Doğrulandı, [uygulama doğrulama raporu](../verification/2026-11-02-app-report.md)). Python istemcisi bu karakterleri hâlâ TİP 4 bitmap olarak gönderir.
 
 ### Görüntüleme davranışı
 

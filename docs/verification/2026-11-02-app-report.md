@@ -4,8 +4,9 @@
 
 SLQ Studio'nun protokol katmanı (TypeScript) ve BLE taşıması gerçek bir panelde denendi.
 **20 adımın 20'si panel tarafından kabul edildi** (ST=1, eksiksiz parça onayları ve transfer sonu cevabı).
-Ölçütler cevap düzeyindedir: bu turda panelin görüntüsü gözlemci tarafından tek tek işaretlenmedi.
-Görsel gözlem gerektiren tek yeni bilgi (dar Türkçe glifler) aşağıda **Açık** olarak listelenmiştir.
+Ölçütler cevap düzeyindedir: bu turda panelin görüntüsü adım adım işaretlenmedi.
+Görsel gözlem gerektiren tek yeni bilgi olan dar Türkçe glifler, proje sahibi tarafından panelde ayrıca
+doğrulandı (aşağıda).
 
 ## Ortam
 
@@ -55,8 +56,8 @@ geçerli 48×12 GIF üretmesi. **32/32 test geçti.**
 | Web Bluetooth (Electron/Chromium, Windows) 446 baytlık parçaları sorunsuz taşıyor; parça boyutu düşürme yedeği devreye girmedi | Doğrulandı |
 | Ardışık parça yazması ~150 ms/parça (cevaplı yazma + onay bekleme) | Doğrulandı |
 | Uygulamanın ürettiği dar Türkçe glifler (TİP 3, aksan eklenmiş) panel tarafından kabul ediliyor | Doğrulandı (cevap düzeyinde) |
-| Aynı gliflerin panelde doğru göründüğü | **Açık** — gözle doğrulanmalı |
-| TİP 3 boşluk karakteri (12 sıfır bayt) | Kabul edildi; görünüm **Açık** |
+| Aynı gliflerin panelde doğru göründüğü ("ŞÜKRÜ ÇİĞ ığüöçş") | Doğrulandı — proje sahibi, uygulamadan gönderip panelde gözledi |
+| TİP 3 boşluk karakteri (12 sıfır bayt) | Doğrulandı — aynı metinde kelime arası boşluk |
 
 ## Denenmeyenler
 

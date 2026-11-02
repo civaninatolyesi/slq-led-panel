@@ -96,7 +96,7 @@ flowchart LR
 
 | Konu | Açıklama |
 |---|---|
-| Dar Türkçe glifler | Üretici fontu yalnızca ASCII içerir. Ç Ş Ğ Ü Ö İ ç ş ğ ü ö ı, temel harfe aksan eklenerek 6×12 TİP 3 glif olarak üretilir (`core/text.ts`). Boşluk da dar glif olarak gider. Panel kabul ediyor (ST=1, 2026-11-02); görünümün gözle doğrulanması **Açık** |
+| Dar Türkçe glifler | Üretici fontu yalnızca ASCII içerir. Ç Ş Ğ Ü Ö İ ç ş ğ ü ö ı, temel harfe aksan eklenerek 6×12 TİP 3 glif olarak üretilir (`core/text.ts`). Boşluk da dar glif olarak gider. Donanımda doğrulandı (2026-11-02) |
 | GIF kodlama | Kare başına palet; renk sayısı ≤ 64 ise birebir palet, değilse niceleme |
 | Sağa kayma | Yazı panele ters sırayla gönderilir, böylece doğru okunur |
 

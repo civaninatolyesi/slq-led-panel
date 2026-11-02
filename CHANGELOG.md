@@ -14,7 +14,7 @@ Biçim [Keep a Changelog](https://keepachangelog.com/tr-TR/1.1.0/), sürümleme 
   playlist, parlaklık/güç/döndürme, sıfırlama, geliştirici konsolu. Türkçe ve İngilizce, koyu ve açık tema.
 - Protokolün TypeScript portu (`app/src/core/`) ve Python'la bayt bayt karşılaştıran testler
   (`tools/gen_test_vectors.py`, 32 test).
-- Türkçe harfler için dar (6×12, TİP 3) glifler: Ç Ş Ğ Ü Ö İ ç ş ğ ü ö ı.
+- Türkçe harfler için dar (6×12, TİP 3) glifler: Ç Ş Ğ Ü Ö İ ç ş ğ ü ö ı. Panelde doğrulandı.
 - Donanım duman testi `app/scripts/hwtest.cjs`: SLQ-B555F7 üzerinde 20/20 adım başarılı.
 - GitHub Actions: test, masaüstü/Android paketleri, GitHub Release ve Pages yayını.
 - [Uygulama rehberi](docs/app.md), [uygulama doğrulama raporu](docs/verification/2026-11-02-app-report.md).
