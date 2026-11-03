@@ -3,8 +3,6 @@
  * Vektörler: python tools/gen_test_vectors.py
  */
 import { describe, expect, it } from 'vitest'
-import { PRESETS } from './animations'
-import { encodeGif, type Frame } from './media'
 import * as P from './protocol'
 import { encodeText, fontStd, glyphToRows, rowsToGlyph } from './text'
 import font from './font12.json'
@@ -86,19 +84,5 @@ describe('metin kodlama', () => {
   it('glif satır/bayt dönüşümü tersinir', () => {
     const g = fontStd((font as Record<string, number[]>).A)
     expect(rowsToGlyph(glyphToRows(g, 6), 6)).toEqual(g)
-  })
-})
-
-describe('GIF', () => {
-  it('tüm hazır animasyonlar geçerli 48x12 GIF üretir', () => {
-    for (const p of PRESETS) {
-      const frames: Frame[] = p.make(p.color ?? [255, 255, 255])
-      const gif = encodeGif(frames)
-      expect(String.fromCharCode(...gif.slice(0, 6)), p.id).toBe('GIF89a')
-      expect(gif[6] | (gif[7] << 8)).toBe(48)
-      expect(gif[8] | (gif[9] << 8)).toBe(12)
-      expect(gif[gif.length - 1]).toBe(0x3b)
-      expect(gif.length, p.id).toBeLessThan(40_000)
-    }
   })
 })

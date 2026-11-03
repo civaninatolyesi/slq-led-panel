@@ -25,7 +25,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { ConnectHint } from '../App'
 import { isNative } from '../ble/transport'
-import { PRESETS, presetFrames, type Preset } from '../core/animations'
+import { PRESETS, PRESET_TAGS, getPreset, presetFrames, presets, type Preset, type PresetTag } from '../core/animations'
 import {
   H,
   W,
@@ -138,18 +138,15 @@ function Gallery({ toStudio }: { toStudio: (f: Frame[]) => void }) {
   const lang = useStore((s) => s.lang)
   const [sel, setSel] = useState(PRESETS[0].id)
   const [colors, setColors] = useState<Record<string, RGB>>({})
-  const [tag, setTag] = useState<'all' | Preset['tags'][number]>('all')
-  const p = PRESETS.find((x) => x.id === sel)!
+  const [tag, setTag] = useState<'all' | PresetTag>('all')
+  const p = getPreset(sel)
   const color = colors[sel] ?? p.color
   const frames = useMemo(() => presetFrames(p, color), [p, color])
   const render = useMemo(() => framesRenderer(frames), [frames])
 
   const tags: { value: typeof tag; label: string }[] = [
     { value: 'all', label: t('Tümü', 'All') },
-    { value: 'fun', label: t('Eğlence', 'Fun') },
-    { value: 'ride', label: t('Sürüş', 'Ride') },
-    { value: 'party', label: t('Parti', 'Party') },
-    { value: 'ambient', label: t('Ortam', 'Ambient') },
+    ...PRESET_TAGS.map((x) => ({ value: x.id, label: x.name[lang] })),
   ]
 
   return (
@@ -159,7 +156,7 @@ function Gallery({ toStudio }: { toStudio: (f: Frame[]) => void }) {
           <Seg value={tag} onChange={setTag} options={tags} />
         </div>
         <div className="gallery">
-          {PRESETS.filter((x) => tag === 'all' || x.tags.includes(tag)).map((x) => (
+          {presets.byTag(tag).map((x) => (
             <PresetCard key={x.id} p={x} on={x.id === sel} color={colors[x.id]} onClick={() => setSel(x.id)} />
           ))}
         </div>

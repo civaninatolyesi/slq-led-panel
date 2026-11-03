@@ -23,6 +23,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "preview:preset": "vitest run src/core/animations/preview.test.ts",
     "electron": "electron .",
     "electron:dev": "concurrently -k \"vite --port 5173 --strictPort\" \"wait-on tcp:5173 && cross-env SLQ_DEV_URL=http://localhost:5173 electron .\"",
     "dist:win": "vite build && electron-builder --win --publish never",

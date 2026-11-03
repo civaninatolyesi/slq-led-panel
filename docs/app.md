@@ -34,7 +34,7 @@ arka planda yeniden bağlanır (üst köşedeki durum göstergesi sarı yanar).
 |---|---|
 | **Ana sayfa** | Ekranı aç/kapa, parlaklık, 180° çevirme, hızlı yazı, tek dokunuşla animasyonlar, fabrika demolarına dönüş |
 | **Yazı** | Türkçe dahil her karakter; tek renk, harf başına gökkuşağı ya da panelin hazır gradyanları; arka plan rengi; 8 efekt; hız; dar (8 harf) ya da geniş (4 harf) yazı; dikey yazı. *Anında uygula* açıkken gönderilmiş yazının efekt/renk/hız değişiklikleri yazı yeniden yüklenmeden panele yansır |
-| **Görseller → Galeri** | 17 hazır animasyon (gökkuşağı, alev, dijital yağmur, kalp, gözler, sinyal okları, fren lambası, çakar, plazma…). Renk değiştirilebilir |
+| **Görseller → Galeri** | 26 hazır animasyon (gökkuşağı, alev, dijital yağmur, kalp, gözler, ejderha bakışı, sinyal okları, fren lambası, çakar, plazma, Türk bayrağı motifleri…). Etikete göre filtrelenir, renk değiştirilebilir. Yeni animasyon ekleme: [animasyon rehberi](animations.md) |
 | **Görseller → Dosyadan** | PNG, JPG, GIF, WebP (animasyonlu dahil) dosyasını 48×12'ye sığdırır. Dosya zaten 48×12 GIF ise olduğu gibi gönderilir |
 | **Görseller → Stüdyo** | Kare kare piksel animasyon editörü: kalem, silgi, doldurma, renk alma, önceki kareyi gösterme, kaydırma, kare süresi. Çizim cihazda saklanır |
 | **Canlı çizim** | Dokunduğun piksel anında panelde yanar; yatay/dikey simetri panelin kendisi tarafından çizilir |
@@ -60,7 +60,8 @@ arka planda yeniden bağlanır (üst köşedeki durum göstergesi sarı yanar).
 
 ```
 app/
-  src/core/        protokol (slq/protocol.py'nin birebir portu), metin/glif kodlama, GIF, animasyonlar, önizleme
+  src/core/        protokol (slq/protocol.py'nin birebir portu), metin/glif kodlama, GIF, önizleme
+  src/core/animations/  hazır animasyonlar: Canvas, kare kurucuları, efektler, katalog (bkz. animations.md)
   src/ble/         taşıma katmanı: web.ts (Web Bluetooth: tarayıcı + Electron), native.ts (Android), panel.ts (oturum)
   src/state/       uygulama durumu (zustand), müzik ritmi motoru
   src/pages/       ekranlar

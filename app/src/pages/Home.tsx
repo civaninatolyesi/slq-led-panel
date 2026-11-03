@@ -18,7 +18,7 @@ import {
 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import type { PageId } from '../App'
-import { PRESETS, presetFrames } from '../core/animations'
+import { PRESETS, getPreset, presetFrames } from '../core/animations'
 import { encodeGif } from '../core/media'
 import { framesRenderer, textRenderer } from '../core/preview'
 import * as P from '../core/protocol'
@@ -152,7 +152,7 @@ export default function HomePage({ go }: { go: (p: PageId) => void }) {
   }
 
   const sendPreset = async (id: string) => {
-    const pr = PRESETS.find((x) => x.id === id)!
+    const pr = getPreset(id)
     const frames = presetFrames(pr)
     const gif = encodeGif(frames)
     const ok = await s.run(t('Animasyon gönderiliyor', 'Sending animation'), (p, prog) => p.sendGif(gif, 0, (d, n) => prog(d / n)))
@@ -282,7 +282,7 @@ export default function HomePage({ go }: { go: (p: PageId) => void }) {
           <Card title={t('Tek dokunuşla', 'One tap')}>
             <div className="gallery" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))' }}>
               {['rainbow', 'heart', 'eyes', 'fire', 'hazard', 'plasma'].map((id) => {
-                const pr = PRESETS.find((x) => x.id === id)!
+                const pr = getPreset(id)
                 return <PresetMini key={id} id={id} name={pr.name[s.lang]} onClick={() => sendPreset(id)} />
               })}
             </div>
@@ -307,7 +307,7 @@ export default function HomePage({ go }: { go: (p: PageId) => void }) {
 
 function PresetMini({ id, name, onClick }: { id: string; name: string; onClick: () => void }) {
   const render = useMemo(() => {
-    const pr = PRESETS.find((x) => x.id === id)!
+    const pr = getPreset(id)
     return framesRenderer(presetFrames(pr))
   }, [id])
   return (
